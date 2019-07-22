@@ -17,8 +17,6 @@ export class CardService extends Service {
 
     updateCardPosition(cardId: string, panelId: string, position: string) {
 
-        console.log('card' + cardId, 'panel' + panelId);
-
         return this.httpService.put(`${this.url}${cardId}`, {},
             {
                 params: {

@@ -39,14 +39,9 @@ export class ListComponent implements OnInit {
             return !!listElement.cards.find(card => card.id === event.container.data[event.currentIndex].id);
         });
 
-        console.log(list.id);
-        console.log(event.currentIndex);
-        console.log(event.previousIndex);
-
         const position = computePosition(event, list);
 
         this.cardService.updateCardPosition(event.container.data[event.currentIndex].id, list.id, position).subscribe((data) => {
-            console.log(data);
         });
     }
 

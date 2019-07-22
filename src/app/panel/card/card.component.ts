@@ -33,7 +33,6 @@ export class CardComponent {
         const dialogRef = this.dialog.open(CardDialogComponent, dialog);
 
         dialogRef.componentInstance.cardEmitter.subscribe((card: Card) => {
-                console.log(card);
                 this.card = card;
             },
             () => {
