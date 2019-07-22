@@ -1,7 +1,20 @@
+[![Build Status](https://travis-ci.org/gorapiotr/gptrello.svg?branch=master)](https://travis-ci.org/gorapiotr/gptrello)
+
 # Gptrello
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+## Demo
+[GpTrello demo instance](http://77.55.210.108:4200/board)
+Demo instance app on my VPS - http://77.55.210.108:4200/board.
 
+## Open Source Packages
+ * [Angular Material](https://material.angular.io/) - Forms, dialogs .etc
+ * [Snotify](https://github.com/artemsky/ng-snotify) - Errors handling
+ * [Font-awesome](https://fontawesome.com/) - Icons
+ * [Bootstrap](https://getbootstrap.com/) - Styles
+ 
+## Continues integration
+[Travis CI for app](https://travis-ci.org/gorapiotr/gptrello)
+ 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
