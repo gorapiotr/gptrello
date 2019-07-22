@@ -4,13 +4,18 @@ import {BoardService} from './board.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MainInterceptor} from '../../interceptors/main.interceptor';
 import {List} from '../../models/list/list.model';
+import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 
 describe('BoardService', () => {
     beforeEach(() => TestBed.configureTestingModule({
         imports: [
-            HttpClientModule
+            HttpClientModule,
+            SnotifyModule,
         ],
-        providers: [{provide: HTTP_INTERCEPTORS, useClass: MainInterceptor, multi: true}],
+        providers: [
+            {provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+            SnotifyService,
+            {provide: HTTP_INTERCEPTORS, useClass: MainInterceptor, multi: true}],
     }));
 
     it('should be created', () => {

@@ -2,9 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RemoveDialogComponent } from './remove-dialog.component';
 import {SharedModule} from '../shared.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
+import {MainInterceptor} from '../../interceptors/main.interceptor';
 
 describe('RemoveDialogComponent', () => {
   let component: RemoveDialogComponent;
@@ -16,14 +18,17 @@ describe('RemoveDialogComponent', () => {
       imports: [
         SharedModule,
         HttpClientModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        SnotifyModule,
       ],
       providers: [
+        {provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+        SnotifyService,
         { provide: MatDialogRef, useValue: {} },
         { provide: MAT_DIALOG_DATA, useValue: [] },
+        { provide: HTTP_INTERCEPTORS, useClass: MainInterceptor, multi: true }
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

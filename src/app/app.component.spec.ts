@@ -6,6 +6,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MainInterceptor} from './interceptors/main.interceptor';
+import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
@@ -19,8 +20,12 @@ describe('AppComponent', () => {
                 BrowserAnimationsModule,
                 HttpClientModule,
                 PanelModule,
+                SnotifyModule,
             ],
-            providers: [{provide: HTTP_INTERCEPTORS, useClass: MainInterceptor, multi: true}],
+            providers: [
+                {provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+                SnotifyService,
+                {provide: HTTP_INTERCEPTORS, useClass: MainInterceptor, multi: true}],
         }).compileComponents();
     }));
 
