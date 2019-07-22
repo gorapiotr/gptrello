@@ -11,7 +11,7 @@ import {SnotifyService} from 'ng-snotify';
 })
 export class BoardComponent {
 
-    private lists: List[];
+    public lists: List[];
 
     constructor(private boardService: BoardService) {
         this.boardService.getBoard().subscribe((data: List[]) => {
