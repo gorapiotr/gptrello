@@ -1,17 +1,26 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Service} from '../service';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
-export class BoardService {
+export class BoardService extends Service {
 
-  private boardName = 'GPZjmgq1';
+    protected url = 'boards/';
 
-  constructor(private http: HttpClient) {
-  }
+    constructor(protected httpService: HttpClient) {
+        super(httpService);
+    }
 
-  getBoard() {
-    return this.http.get(`boards/${this.boardName}/cards/`);
-  }
+    getBoard() {
+        return this.httpService.get(`${this.url}${this.boardName}/lists/`, {
+            params: {
+                cards: 'open',
+                card_fields: 'name,desc,pos',
+                filter: 'open',
+                fields: 'name'
+            }
+        });
+    }
 }

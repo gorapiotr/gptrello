@@ -1,0 +1,25 @@
+<div class="add-card" *ngIf="!show" (click)="showForm()">
+    <i class="fa fa-plus"></i> Create new card
+</div>
+
+<div *ngIf="show">
+    <mat-card [formGroup]="form">
+        <mat-card-content>
+            <input type="hidden" formControlName="idList">
+            <mat-form-field>
+                <input matInput
+                       placeholder="Card name"
+                       formControlName="name">
+            </mat-form-field>
+            <div class="buttons">
+                <button mat-button
+                        class="mat-raised-button mat-primary"
+                        (click)="save()"
+                        [disabled]="form.invalid">
+                    Create new card
+                </button>
+                <i class="fa fa-times" (click)="showForm()"></i>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

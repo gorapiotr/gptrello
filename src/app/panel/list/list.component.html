@@ -1,0 +1,13 @@
+<ng-container *ngIf="list">
+    <h2 cdkDragHandle class="mat-h2">{{list.name}}</h2>
+
+    <div class="card-list-content" cdkDropList [id]="list.id" [cdkDropListData]="list.cards"
+         [cdkDropListConnectedTo]="listIds" (cdkDropListDropped)="onCardDrop($event)">
+        <div *ngFor="let card of list.cards" cdkDrag>
+            <app-card [card]="card"
+                      (removeEmitter)="removeCardFromList($event)"
+            ></app-card>
+        </div>
+    </div>
+    <app-add-card *ngIf=list [idList]="list.id" (cardEmitter)="attachToList($event)"></app-add-card>
+</ng-container>

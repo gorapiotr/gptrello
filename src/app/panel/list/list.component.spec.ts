@@ -1,24 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {BoardComponent} from './board.component';
-import {AppComponent} from '../../app.component';
+import {ListComponent} from './list.component';
 import {SharedModule} from '../../shared/shared.module';
-import {ListComponent} from '../list/list.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CardComponent} from '../card/card.component';
 import {CardDialogComponent} from '../card-dialog/card-dialog.component';
 import {AddCardComponent} from '../add-card/add-card.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MainInterceptor} from '../../interceptors/main.interceptor';
 
-describe('BoardComponent', () => {
-    let component: BoardComponent;
-    let fixture: ComponentFixture<BoardComponent>;
+describe('ListComponent', () => {
+    let component: ListComponent;
+    let fixture: ComponentFixture<ListComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                BoardComponent,
-                ListComponent,
+            declarations: [ListComponent,
                 CardComponent,
                 CardDialogComponent,
                 AddCardComponent],
@@ -32,7 +28,7 @@ describe('BoardComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(BoardComponent);
+        fixture = TestBed.createComponent(ListComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

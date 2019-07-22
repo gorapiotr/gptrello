@@ -1,0 +1,10 @@
+<ng-container *ngIf="card">
+    <mat-card>
+        <mat-card-content>
+            {{card.name}}
+            <i *ngIf=card?.desc class="fa fa-align-justify"></i>
+            <i class="fa fa-trash option" (click)="openRemoveDialog()"></i>
+            <i class="fa fa-edit option" (click)="openDialog()"></i>
+        </mat-card-content>
+    </mat-card>
+</ng-container>
