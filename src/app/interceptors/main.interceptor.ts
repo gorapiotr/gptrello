@@ -25,7 +25,7 @@ export class MainInterceptor implements HttpInterceptor {
         customReq.headers.append('Access-Control-Allow-Origin', '*');
         customReq.headers.append('Access-Control-Allow-Credentials', 'true');
         customReq.headers.append('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
-        customReq.headers.append('Access-Control-Allow-Headers', 'Content-Type, x-xsrf-token');
+        customReq.headers.append('Access-Control-Allow-Headers', 'Content-Type, x-xsrf-token, x_csrftoken, application/json');
 
         return next.handle(customReq)
             .catch((err: HttpErrorResponse) => {
