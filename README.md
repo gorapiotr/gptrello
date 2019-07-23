@@ -6,6 +6,8 @@
 [GpTrello demo instance](http://77.55.210.108:4200/board)
 Demo instance app on my VPS - http://77.55.210.108:4200/board.
 
+![GpTrello demo](./images/demo.png)
+
 ## Open Source Packages
  * [Angular Material](https://material.angular.io/) - Forms, dialogs .etc
  * [Snotify](https://github.com/artemsky/ng-snotify) - Errors handling
@@ -14,6 +16,9 @@ Demo instance app on my VPS - http://77.55.210.108:4200/board.
  
 ## Continues integration
 [Travis CI for app](https://travis-ci.org/gorapiotr/gptrello)
+
+![GpTrello Travis CI](./images/travis.png)
+
  
 ## Development server
 
