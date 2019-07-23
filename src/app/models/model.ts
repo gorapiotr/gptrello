@@ -3,7 +3,6 @@ export abstract class GenericModel implements Model {
     name: string;
 }
 
-
 interface Model {
     id: string;
     name: string;

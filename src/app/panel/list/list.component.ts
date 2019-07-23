@@ -4,21 +4,21 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 import {Card} from '../../models/card/card.model';
 import {CardService} from '../../services/card/card.service';
 import {computePosition} from '../../assets/card-position';
+import {SnotifyService} from 'ng-snotify';
 
 @Component({
     selector: 'app-list',
     templateUrl: './list.component.html',
     styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
     @Input() list: List;
     @Input() lists: List[];
 
-    constructor(private cardService: CardService) {
-    }
-
-    ngOnInit() {
+    constructor(private cardService: CardService,
+                private notifyService: SnotifyService
+    ) {
     }
 
     get listIds(): string[] {
@@ -41,8 +41,15 @@ export class ListComponent implements OnInit {
 
         const position = computePosition(event, list);
 
-        this.cardService.updateCardPosition(event.container.data[event.currentIndex].id, list.id, position).subscribe((data) => {
-        });
+        this.cardService.updateCardPosition(event.container.data[event.currentIndex].id, list.id, position)
+            .subscribe(
+                () => {
+                    this.notifyService.success('Position updated');
+                },
+                () => {
+                },
+                () => {
+                });
     }
 
     attachToList(card: Card) {

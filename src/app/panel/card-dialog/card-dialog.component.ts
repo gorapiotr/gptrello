@@ -40,9 +40,13 @@ export class CardDialogComponent {
     save() {
         const card = this.form.value as Card;
 
-        this.cardService.updateModel(card).subscribe( (data:any) => {
-            this.notifyService.success('Card edited successfully');
-        });
+        this.cardService.updateModel(card).subscribe(() => {
+                this.notifyService.success('Card edited successfully');
+            },
+            () => {
+            },
+            () => {
+            });
 
         this.cardEmitter.emit(card);
 
