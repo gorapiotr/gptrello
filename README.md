@@ -12,7 +12,7 @@ Demo instance app on my VPS - http://77.55.210.108:4200/board.
 
 ## Open Source Packages
  * [Angular Material](https://material.angular.io/) - Forms, dialogs .etc
- * [Snotify](https://github.com/artemsky/ng-snotify) - Errors handling
+ * [Snotify](https://github.com/artemsky/ng-snotify) - Errors handling, Display notifications
  * [Font-awesome](https://fontawesome.com/) - Icons
  * [Bootstrap](https://getbootstrap.com/) - Styles
  
