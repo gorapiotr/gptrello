@@ -49,9 +49,9 @@ export class ListComponent {
                     this.updateCardPosValue();
                 },
                 () => {
-                },
-                () => {
-                });
+                    // errors handling in interceptor
+                }
+            );
     }
 
     attachToList(card: Card) {
@@ -68,7 +68,7 @@ export class ListComponent {
     updateCardPosValue() {
         this.listService.getCards(this.list.id).subscribe((data: any[]) => {
             this.list.cards = this.list.cards.map((card: Card) => {
-                const cardObj = data.find( (val) => {
+                const cardObj = data.find((val) => {
                     return val.id === card.id;
                 });
 

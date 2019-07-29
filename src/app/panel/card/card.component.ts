@@ -36,8 +36,7 @@ export class CardComponent {
                 this.card = card;
             },
             () => {
-            },
-            () => {
+                // errors handling in interceptor
             });
     }
 
@@ -60,8 +59,7 @@ export class CardComponent {
                 this.removeEmitter.emit(id);
             },
             () => {
-            },
-            () => {
+                // errors handling in interceptor
             });
     }
 }

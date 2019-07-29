@@ -22,12 +22,15 @@ export class RemoveDialogComponent {
     }
 
     remove() {
-        this.removeObject.service.remove(this.removeObject.id).subscribe( (data) => {
+        this.removeObject.service.remove(this.removeObject.id).subscribe(() => {
 
-            this.removeEmitter.emit(this.removeObject.id);
-            this.dialogRef.close();
-            this.notifyService.success('Element removed successfully');
-    });
+                this.removeEmitter.emit(this.removeObject.id);
+                this.dialogRef.close();
+                this.notifyService.success('Element removed successfully');
+            },
+            () => {
+                // errors handling in interceptor
+            });
     }
 
     close() {

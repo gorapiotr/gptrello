@@ -10,7 +10,7 @@ import {SnotifyService} from 'ng-snotify';
     templateUrl: './card-dialog.component.html',
     styleUrls: ['./card-dialog.component.scss']
 })
-export class CardDialogComponent {
+export class CardDialogComponent implements OnInit {
 
     form: FormGroup;
     card: Card;
@@ -24,8 +24,10 @@ export class CardDialogComponent {
         @Inject(MAT_DIALOG_DATA) card: Card,
         private notifyService: SnotifyService
     ) {
-
         this.card = card;
+    }
+
+    ngOnInit() {
         this.createForm();
     }
 
@@ -44,8 +46,7 @@ export class CardDialogComponent {
                 this.notifyService.success('Card edited successfully');
             },
             () => {
-            },
-            () => {
+                // error handling in interceptor
             });
 
         this.cardEmitter.emit(card);
